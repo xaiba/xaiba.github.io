@@ -27,26 +27,27 @@ function draw() {
   rotateY(.1)
   rotateZ(4.2)
   scale(1, 1, 50 / 255);
+
   model(terrain);
-  fill(30)
   noFill()
-  stroke(255, 0, 0)
-  strokeWeight(.01);
+  stroke(255, 100, 0)
+  strokeWeight(.05);
+
   //Second layer
   push()
-  scale(1.05, 1.05, 1.05)
+  scale(1.035, 1.035, 1.035)
   translate(1, 1, 1)
   noFill()
-  strokeWeight(.01)
-  stroke(0, 255, 0)
+  strokeWeight(.08)
+  stroke(0, 255, 100)
   model(terrain);
   pop()
   // Third layer
   push()
   scale(1.025, 1.025, 1.025)
   noFill()
-  strokeWeight(.01)
-  stroke(0, 0, 255)
+  strokeWeight(.09)
+  stroke(100, 0, 255)
   model(terrain);
   pop()
 
@@ -54,7 +55,7 @@ function draw() {
 
 }
 
-function meshFromHeightmap(image, detailX = 150, detailY = 150) {
+function meshFromHeightmap(image, detailX = 200, detailY = 100) {
   return new p5.Geometry(
     detailX,
     detailY,
