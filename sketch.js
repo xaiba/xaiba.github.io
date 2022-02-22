@@ -8,16 +8,17 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   noStroke();
-  camera(0, -150, 150);
+  camera(-0, -150, 160);
   terrain = meshFromHeightmap(heightmap);
 }
 
 function draw() {
   background(0);
 
-  orbitControl(2, 1, 0.05);
+  orbitControl(1, 1, .1);
 
-  directionalLight(255, 210, 24, 0.5, 1, -0.5);
+
+  //directionalLight(255, 210, 24, 0.5, 1, -0.5);
 
   // meshFromHeightmap assumes 256x256 unit grid with altitudes from 0 to 255.
   // That results in excessively steap terrain for most use cases.
@@ -29,18 +30,23 @@ function draw() {
   model(terrain);
   fill(30)
   noFill()
-  stroke(254, 23, 94)
+  stroke(255, 0, 0)
   strokeWeight(.01);
+  //Second layer
   push()
+  scale(1.05, 1.05, 1.05)
   translate(1, 1, 1)
   noFill()
-  stroke(235, 1, 16)
+  strokeWeight(.01)
+  stroke(0, 255, 0)
   model(terrain);
   pop()
+  // Third layer
   push()
-  scale(1.1, 1.1, 1.1)
+  scale(1.025, 1.025, 1.025)
   noFill()
-  stroke(25, 50, 133)
+  strokeWeight(.01)
+  stroke(0, 0, 255)
   model(terrain);
   pop()
 
@@ -48,7 +54,7 @@ function draw() {
 
 }
 
-function meshFromHeightmap(image, detailX = 100, detailY = 100) {
+function meshFromHeightmap(image, detailX = 150, detailY = 150) {
   return new p5.Geometry(
     detailX,
     detailY,
