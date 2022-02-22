@@ -2,7 +2,7 @@ let heightmap;
 let terrain;
 
 function preload() {
-  heightmap = loadImage('/heightmap2.png');
+  heightmap = loadImage('pics/heightmap2.png');
 }
 
 function setup() {
@@ -30,7 +30,7 @@ function draw() {
   fill(30)
   noFill()
   stroke(254, 23, 94)
-  strokeWeight(0.1);
+  strokeWeight(.01);
   push()
   translate(1, 1, 1)
   noFill()
@@ -38,9 +38,9 @@ function draw() {
   model(terrain);
   pop()
   push()
-  translate(-1, -1, -1)
+  scale(1.1, 1.1, 1.1)
   noFill()
-  stroke(125, 50, 133)
+  stroke(25, 50, 133)
   model(terrain);
   pop()
 
@@ -48,7 +48,7 @@ function draw() {
 
 }
 
-function meshFromHeightmap(image, detailX = 150, detailY = 150) {
+function meshFromHeightmap(image, detailX = 100, detailY = 100) {
   return new p5.Geometry(
     detailX,
     detailY,
