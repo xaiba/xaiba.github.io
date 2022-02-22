@@ -29,22 +29,22 @@ function draw() {
   scale(1, 1, 50 / 255);
 
   model(terrain);
-  noFill()
+  fill(255, 32, 3, 20)
   stroke(255, 100, 0)
   strokeWeight(.05);
 
   //Second layer
   push()
-  scale(1.035, 1.035, 1.035)
+  scale(0.95, 0.95, 0.95)
   translate(1, 1, 1)
   noFill()
   strokeWeight(.08)
-  stroke(0, 255, 100)
+  stroke(0, 155, 100)
   model(terrain);
   pop()
   // Third layer
   push()
-  scale(1.025, 1.025, 1.025)
+  scale(1.015, 1.015, 1.015)
   noFill()
   strokeWeight(.09)
   stroke(100, 0, 255)
@@ -55,7 +55,7 @@ function draw() {
 
 }
 
-function meshFromHeightmap(image, detailX = 200, detailY = 100) {
+function meshFromHeightmap(image, detailX = 200, detailY = 200) {
   return new p5.Geometry(
     detailX,
     detailY,
